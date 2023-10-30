@@ -17,7 +17,13 @@
 */
 
 /* _____________ Your Code Here _____________ */
-
+/**
+ * Here a rercursive conditional type is ued to perform this challenge.
+ * Basically we check if _T_ extends a tuple and infer its first value into the _First_ type variable and the others into _Rest_ variable.
+ * Then _First_ is tested if extends U and if this test is positive the type returns _true_ and stops. If the test is negative, The Includes is 
+ * performed again using _Rest_ as the first type argument. The test goes on recursively until or the tested elements gives a positive match with _U_
+ * or if T becomes an empty array; In this case _false_ is returned.
+ */
 type Includes<T extends readonly any[], U> = T extends [infer First, ...infer Rest] ?
   Equal<First, U> extends true ? true : Includes<Rest, U> : false;
 

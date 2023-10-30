@@ -20,6 +20,11 @@
 
 /* _____________ Your Code Here _____________ */
 
+/**
+ * here we use the distributive property of union type.
+ * As each member if the union _T_ is tested against U
+ * the result is a new union where the test resultin in never are omitted.
+ */
 type MyExclude<T, U> = T extends U ? never : T;
 
 /* _____________ Test Cases _____________ */

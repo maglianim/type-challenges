@@ -18,6 +18,11 @@
 
 /* _____________ Your Code Here _____________ */
 
+/**
+ * Here we test if _T_ type argument is a tuple and we infer its values into _Values_ type variable.
+ * if the test is successful we return a new tuple whose first argument is _U_ and next has the spreading
+ * of _Values_ type variable.
+ */
 type Unshift<T, U> = T extends [...infer Values] ? [U, ...Values] : never;
 
 /* _____________ Test Cases _____________ */

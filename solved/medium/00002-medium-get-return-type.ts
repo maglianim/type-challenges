@@ -25,6 +25,13 @@
 
 /* _____________ Your Code Here _____________ */
 
+/**
+ * ***Explanation:***
+ * 
+ * Here with a conditional type we test if type argument _T_ extends a function and along with the test
+ * the return type of the function is stored (_infer RetVal_). If the result of the test is true, then _RetVal_ is returned
+ * otherwise we don't have a funciont in _T_ so we return _never_.
+ */
 type MyReturnType<T extends (...args: any[]) => any> = T extends (...args: any[]) => infer RetVal ? RetVal : never;
 
 /* _____________ Test Cases _____________ */

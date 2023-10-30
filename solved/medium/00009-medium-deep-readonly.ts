@@ -37,9 +37,11 @@
 /* _____________ Your Code Here _____________ */
 
 /**
- * Explanation: We create a mapped type whose keys have the _readonly_ modifier.
+ * ***Explanation:***
+ * 
+ * We create a mapped type whose keys have the _readonly_ modifier.
  * the type of every key of the new type is the result of a test:
- * If it's a primitive type (its keyof extends never) then it's type is the same of the original _T_,
+ * If it's a primitive type (keyof T[Prop] extends never) then it's type is the same of the original _T_,
  * otherwise it means has sub-keys, so DeepReadonly is applied again recursively.
  */
 type DeepReadonly<T> = {

@@ -30,6 +30,14 @@
 
 /* _____________ Your Code Here _____________ */
 
+/**
+ * ***Explanation:***
+ * 
+ * We created a mapped type.
+ * As we have to omit the properties K we obtained the keys to include
+ * by subracting K to the kes of T (_Exclude<keyof T, K>_)
+ * The result of the subratcion is applied with its original type
+ */
 type MyOmit<T, K extends keyof T> = {
   [key in Exclude<keyof T, K>]: T[key];
 };

@@ -20,6 +20,11 @@
 
 /* _____________ Your Code Here _____________ */
 
+/**
+ * Here challenge is solved using conditional types. Here is tested if given type argument is a function
+ * and we infer its parameters into the type Variable _TArgs_. if the test is successful _TArgs_ is returned, otherwise
+ * we return _never_.
+ */
 type MyParameters<T extends (...args: any[]) => any> = T extends (...args: infer TArgs) => any ? TArgs: never;
 
 /* _____________ Test Cases _____________ */

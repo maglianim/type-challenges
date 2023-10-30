@@ -40,7 +40,21 @@
 // on typescript >= 4.5 results in: { a: number }
 // omitting changed properties make a more predictable result
 
-
+/**
+ * ***Explanation:***
+ * 
+ * First, we set K as keyof T to specify the desidered readonly keys, then we default it to the full keyof of T
+ * in order to consider all keys of T if K is not specified.
+ * We implemented a mapped type where all the keys of K are created with the _readonly_ modifier.
+ * ***NOTE:*** Here we omit properties from T because intersection type works as "and" operator for each property,
+ * and the way on how every property is intersected has changed since typescript 4.5+.
+ * Taking this intersecion as an exemple _{ a: number } & { readonly a: number }_, the result has changed as follows:
+ * - prior to typescript 4.5 it resulted in _{ readonly a: number }_
+ * - from typescript 4.5 it results in _{ a: number }_
+ * 
+ * the choice to omit the property not marked as readonly explicitly gives the same predictable result regardless what 
+ * version of typescript is used.
+ */
 type MyReadonly2<T, K extends keyof T = keyof T> = Omit<T, K> & {
   readonly [key in K]: T[key];
 };

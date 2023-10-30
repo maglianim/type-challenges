@@ -18,6 +18,11 @@
 
 /* _____________ Your Code Here _____________ */
 
+/**
+ * Here we test if _T_ type argument is a tuple and we infer its values into _Values_ type variable.
+ * if the test is successful we return a new tuple whose first arguments are the spreading of _Values_ type variable,
+ * then _U_ is put as last value.
+ */
 type Push<T extends any, U> = T extends [...infer Values] ? [...Values, U] : never;
 
 /* _____________ Test Cases _____________ */
