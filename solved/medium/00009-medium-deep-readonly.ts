@@ -48,8 +48,6 @@ type DeepReadonly<T> = {
   readonly [prop in keyof T]: (keyof T[prop]) extends never ? T[prop] : DeepReadonly<T[prop]>;
 };
 
-export const val2: Expected1 = val;
-
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
 
