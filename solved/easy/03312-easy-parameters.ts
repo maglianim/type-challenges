@@ -30,8 +30,8 @@ type MyParameters<T extends (...args: any[]) => any> = T extends (...args: infer
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
 
-const foo = (arg1: string, arg2: number): void => {}
-const bar = (arg1: boolean, arg2: { a: 'A' }): void => {}
+const foo = (_arg1: string, _arg2: number): void => {}
+const bar = (_arg1: boolean, _arg2: { a: 'A' }): void => {}
 const baz = (): void => {}
 
 type cases = [
